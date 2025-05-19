@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKEAI 产品介绍</title>
+    <style>
+        /* 基础样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1f2937;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        h1, h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        p {
+            margin-bottom: 16px;
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #4f46e5;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #6366f1;
+        }
+        /* 产品特色区域样式 */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .feature-item {
+            flex: 1 1 300px;
+            padding: 20px;
+            background-color: #2d3748;
+            border-radius: 8px;
+            margin: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            border: 1px solid #4a5568;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+        .feature-item h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .feature-item p {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        /* 统计数据区域样式 */
+        .stats {
+            text-align: center;
+            margin-top: 30px;
+            padding: 0;
+            background-color: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            margin-bottom: 0;
+        }
+        .stats h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .stats p {
+            font-size: 24px;
+            color: #f56565;
+            font-weight: bold;
+        }
+        /* 底部版权样式 */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #1a202c;
+            color: #d1d5db;
+            font-size: 12px;
+            border-top: 1px solid #4a5568;
+        }
+        /* 价格特点样式 */
+        .pricing {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #1f2937;
+            border-radius: 8px;
+        }
+        .pricing h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .pricing ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .pricing ul li {
+            background-color: #374151;
+            color: #ffffff;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+        .pricing ul li:hover {
+            background-color: #4a5568;
+        }
+        .pricing ul li:before {
+            content: '✓ ';
+            color: #48bb78;
+        }
+        /* 强调企业服务 */
+        .emphasis {
+            font-weight: bold;
+            color: #ffdb58;
+        }
+        /* 新增样式，用于突出关键词排名 */
+        .keyword-ranking {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #2d3748;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #4a5568;
+        }
+        .keyword-ranking h2 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .keyword-ranking p {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        /* 新增样式，用于横向滚动展示 AI 厂商 */
+        .ai-vendors {
+            margin-top: 30px;
+            overflow: hidden;
+            white-space: nowrap;
+            padding-bottom: 0;
+            position: relative;
+            width: 100%;
+        }
+        .ai-vendors-container {
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .ai-vendors-inner {
+            display: flex;
+            animation: scroll 15s linear infinite;
+            will-change: transform;
+        }
+        .ai-vendor-item {
+            display: inline-block;
+            margin-right: 15px;
+            padding: 10px 20px;
+            color: #ffffff;
+            font-size: 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ai-vendors::-webkit-scrollbar {
+            display: none;
+        }
+        .ai-vendors {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* 遮罩层样式 */
+        .ai-vendors::before,
+        .ai-vendors::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            background: linear-gradient(to right, #1f2937, transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .ai-vendors::after {
+            right: 0;
+            background: linear-gradient(to left, #1f2937, transparent);
+        }
+
+        /* 新增价格说明样式 */
+        .pricing-explanation {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #2d3748;
+            border-radius: 8px;
+            border: 1px solid #4a5568;
+        }
+
+        .pricing-explanation h2 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .pricing-explanation p {
+            color: #d1d5db;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-explanation ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .pricing-explanation ul li {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        .pricing-explanation ul li span {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .pricing-explanation .discount {
+            color: #48bb78;
+        }
+
+        .pricing-explanation .special {
+            color: #f56565;
+        }
+
+        .pricing-explanation .public {
+            color: #3182ce;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MKEAI - 您的企业级AI API中转专家</h1>
+        <p>尊敬的用户：</p>
+        <p>
+            您好！MKEAI 致力于为企业提供<span class="emphasis">稳定、高效、安全</span>的 AI API 中转服务，
+            我们整合了全球顶尖 AI 模型，让您告别复杂的接口管理，一站式轻松对接未来。
+        </p>
+
+        <div class="features">
+            <div class="feature-item">
+                <h3>多模型支持</h3>
+                <p>我们支持市场上绝大多数主流 AI 大模型，包括 OpenAI, Azure OpenAI, Google Gemini, Anthropic Claude, 百度文心一言, 阿里通义千问, 讯飞星火等，一个平台即可对接所有模型。</p>
+            </div>
+            <div class="feature-item">
+                <h3>稳定可靠</h3>
+                <p><span class="emphasis">专注于企业级</span> API 中转，官方渠道，拒绝劣质第三方，确保您的 API 请求稳定可靠，SLA 达到 99.9% 以上。</p>
+            </div>
+            <div class="feature-item">
+                <h3>高速响应</h3>
+                <p>我们采用先进的负载均衡和缓存技术，优化网络连接，提供毫秒级的 API 响应速度，提升用户体验。</p>
+            </div>
+            <div class="feature-item">
+                <h3>灵活计费</h3>
+                <p>我们提供多种计费方案，包括按量付费、套餐等，您可以根据您的业务需求选择最合适的方案，降低成本。</p>
+            </div>
+            <div class="feature-item">
+                <h3>易于集成</h3>
+                <p>我们已将所有模型接口转换为 OpenAI 格式，您可以使用相同的 API 结构轻松调用，无需适配。</p>
+            </div>
+            <div class="feature-item">
+                <h3>安全保障</h3>
+                <p>我们承诺不存储您在使用 API 过程中传递的任何内容以及 AI 返回的内容，全面保障您的数据和隐私安全。</p>
+            </div>
+        </div>
+
+        <div class="section-text">
+            <p>
+                MKEAI 平台稳定可靠，日处理API请求超过百万次。选择MKEAI，您将获得更稳定的服务，有力保障您的业务连续性。
+            </p>
+        </div>
+
+        <div class="keyword-ranking">
+            <h2>关键词排名</h2>
+            <p>
+                MKEAI 在百度、必应等主流搜索引擎中，“AI中转站”关键词排名第一，值得信赖。
+            </p>
+        </div>
+
+        <div class="ai-vendors">
+             <div class="ai-vendors-container">
+                <div class="ai-vendors-inner">
+                    <div class="ai-vendor-item">OpenAI</div>
+                    <div class="ai-vendor-item">OpenAI Plus</div>
+                    <div class="ai-vendor-item">Mid journey</div>
+                    <div class="ai-vendor-item">Suno</div>
+                    <div class="ai-vendor-item">快手可灵</div>
+                    <div class="ai-vendor-item">Luma 视频</div>
+                    <div class="ai-vendor-item">Runway 视频</div>
+                    <div class="ai-vendor-item">Claude</div>
+                    <div class="ai-vendor-item">Pixverse 视频</div>
+                    <div class="ai-vendor-item">DeepSeek</div>
+                    <div class="ai-vendor-item">xAI</div>
+                    <div class="ai-vendor-item">数字人</div>
+                    <div class="ai-vendor-item">AI PPT</div>
+                    <div class="ai-vendor-item">Flux 绘图</div>
+                    <div class="ai-vendor-item">Ideogram 绘图</div>
+                    <div class="ai-vendor-item">Moonshot (Kimi)</div>
+                    <div class="ai-vendor-item">谷歌 (Gemini)</div>
+                    <div class="ai-vendor-item">百度 千帆</div>
+                    <div class="ai-vendor-item">阿里 千问</div>
+                    <div class="ai-vendor-item">智谱 AI</div>
+                    <div class="ai-vendor-item">百川 智能</div>
+                    <div class="ai-vendor-item">零一 万物</div>
+                    <div class="ai-vendor-item">讯飞 星火</div>
+                    <div class="ai-vendor-item">字节跳动 豆包</div>
+                    <div class="ai-vendor-item">商汤 商量</div>
+                    <div class="ai-vendor-item">Langchain</div>
+                    <div class="ai-vendor-item">Bing</div>
+                    <div class="ai-vendor-item">腾讯 混元</div>
+                    <div class="ai-vendor-item">Minmax</div>
+                    <div class="ai-vendor-item">人物跳舞视频 (viggle)</div>
+                    <div class="ai-vendor-item">Stable diffusion</div>
+                    <div class="ai-vendor-item">Udio 音乐</div>
+                    <div class="ai-vendor-item">Recraft 绘图</div>
+                    <div class="ai-vendor-item">Pika 视频</div>
+                    <div class="ai-vendor-item">LLama</div>
+                    <div class="ai-vendor-item">其他</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing">
+            <ul>
+                <li>价格优势</li>
+                <li>计费简单</li>
+                <li>高并发</li>
+                <li>API中转</li>
+                <li>模型优惠</li>
+                <li>量大优惠</li>
+            </ul>
+        </div>
+
+        <div class="pricing-explanation">
+            <h2>价格说明</h2>
+            <p>
+                MKEAI 提供多种灵活的计费方式，以满足不同用户的需求，所有价格均公开透明，绝无任何隐藏费用：
+            </p>
+            <ul>
+                <li><span>默认计费：</span> 为 OpenAI 官方 API 价格的 6.8 折，<span style="font-weight: bold; color: #00ffff;">我们不惜一切代价，确保高并发、高稳定</span>，为您提供经济实惠的选择。</li>
+                <li><span>特价分组：</span> 为 OpenAI 官方 API 价格的 2 折，为有更高性价比需求的用户提供超值特惠。</li>
+                <li><span>公益分组：</span> 为 OpenAI 官方 API 价格的 0.6 折，接近免费，旨在支持公益事业，回馈社会。</li>
+            </ul>
+            <p>
+                <span class="emphasis">重要承诺：</span>  我们承诺，MKEAI 平台所展示的模型价格即为用户实际支付价格，
+                绝不采用任何多倍率分组或其他形式的隐藏收费，确保用户消费透明，用得放心。
+            </p>
+            <p>
+                我们致力于为您提供最具竞争力的价格和最透明的计费方式，让您更轻松地使用 AI 技术，降低成本，提高效率。
+            </p>
+        </div>
+
+        <p style="text-align: center;">
+            立即体验 MKEAI，无论是个人还是企业用户，都能免费体验数百款 AI 大模型，享受高效便捷的 AI API 中转服务！
+            请访问：<a href="https://api.mkeai.com" style="color: #4f46e5; text-decoration: underline;">https://api.mkeai.com</a>，开启您的AI之旅。
+        </p>
+        <a href="https://api.mkeai.com" class="btn" style="margin: 20px auto; display: block; width: 150px;">开启您的AI之旅</a>
+    </div>
+
+    <div class="footer">
+        <p>
+            MKEAI - 赋能企业，连接未来。<br/>
+            © 2024 MKEAI. All rights reserved.
+        </p>
+    </div>
+    <script>
+        const aiVendorsContainer = document.querySelector('.ai-vendors-container');
+        const aiVendorsInner = document.querySelector('.ai-vendors-inner');
+        const aiVendorItems = document.querySelectorAll('.ai-vendor-item');
+        let itemWidth = aiVendorItems[0].offsetWidth + parseInt(window.getComputedStyle(aiVendorItems[0]).marginRight);
+        let totalWidth = itemWidth * aiVendorItems.length;
+
+        aiVendorsInner.style.width = `${totalWidth}px`;
+
+        function resetScroll() {
+            aiVendorsContainer.scrollLeft = 0;
+        }
+
+        aiVendorsContainer.addEventListener('scroll', () => {
+            if (aiVendorsContainer.scrollLeft >= totalWidth / 2) {
+                resetScroll();
+            }
+        });
+    </script>
+</body>
+</html>
